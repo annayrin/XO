@@ -51,48 +51,37 @@ document.querySelectorAll(".grid-item").forEach(item =>
 )
 
 
-
-    let result;
-
     function winner (x,o,win) {
 
         win.some(array => {
-           // console.log(array);
+
             if (array.every(item => x.includes(item))){
-       // console.log(array);
-       // console.log(x);
                 endText.innerHTML = "X Wins !";
                 document.querySelectorAll('.grid-item')
                     .forEach(item => {item.classList.add('disabled')}
                     );
-
             }
+
             else if (array.every(item => o.includes(item))) {
+
                  console.log(array);
                  console.log(o);
                  endText.innerHTML = "O Wins !";
-
                     document.querySelectorAll('.grid-item').forEach(item => {
                         item.classList.add('disabled')}
                     );
             }
 
-                else if ( array.every(item => o.includes(item) && x.includes(item)) && (x.length+o.length) >=9)
-                 {
-                    endText.innerHTML = "We have a tie!"; // not working
+                //else if (array.every(item => o.includes(item) && x.includes(item)) && (x.length+o.length)===9)// not working
+            else if ( x.length+o.length === 9)
+                {
+                    endText.innerHTML = "We have a tie!";
                 }
 
         })
 
        // return endText.innerHTML = result;
     }
-
-/*console.log(document.querySelector(".grid-item").classList.contains("x"));
-    if( document.querySelector(".grid-item").classList.contains("x")) {
-         winner(xClicks,oClicks,winningCombinations);
-     }
-         console.log(result);*/
-
 
 
     document.getElementById('restart').addEventListener('click', () => {
